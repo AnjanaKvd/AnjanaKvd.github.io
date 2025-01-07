@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjana Kavidu - Freelance Developer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Anjana Kavidu - Freelance Developer</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+        <!-- Consolidated Content Security Policy -->
+        <meta http-equiv="Content-Security-Policy" content="
+            default-src 'self';
+            img-src 'self' https://cdn.jsdelivr.net data:;
+            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+            script-src 'self' 'unsafe-inline' https://unpkg.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://cdnjs.cloudflare.com;
+            font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+            connect-src 'self' https://formspree.io;
+            frame-src https://www.google.com/;
+        ">
+    
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    </head>
+    
 <body>
     <header>
         <nav id="navbar">
@@ -21,24 +36,34 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button id="theme-toggle">🌙</button>
+            <button id="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="hero fade-in-up">
-            <h1 class="fade-in-up">Hi, I'm Anjana Kavidu</h1>
-            <h2 class="fade-in-up">Freelance Developer</h2>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary">View My Work</a>
-                <a href="#contact" class="btn secondary">Contact Me</a>
+        <section id="home" class="hero">
+            <div class="neural-network-bg"></div>
+            <div class="hero-content">
+                <h1 class="name-title">
+                    Hey there, I'm 
+                    <span class="glitch-wrapper">
+                        <span class="glitch" data-text="A">A</span>njana</span> 
+                        <span class="glitch" data-text="K">K</span>avidu
+                    </span>
+                </h1>
+                <h2 class="typewriter">Freelance Developer</h2>
+                <p class="hero-description">Crafting innovative digital experiences with cutting-edge technologies</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">View My Work</a>
+                    <a href="#contact" class="btn secondary">Hire Me</a>
+                </div>
             </div>
         </section>
 
         <section id="about" class="fade-in-up">
             <h2>About Me</h2>
             <div class="about-content">
-                <img src="profile-picture.jpg" alt="Anjana Kavidu" class="profile-pic rotate">
+                <img src="profile-picture.png" alt="Anjana Kavidu" class="profile-pic">
                 <div class="bio">
                     <p>I'm a passionate freelance developer with expertise in creating responsive and user-friendly web applications. With a strong foundation in modern web technologies, I strive to deliver high-quality solutions that meet client needs.</p>
                 </div>
@@ -48,24 +73,46 @@
             </div>
         </section>
 
-        <section id="skills" class="fade-in-up">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <!-- Skill items will be added dynamically with JavaScript -->
+        <section id="skills" class="skills-section">
+            <div class="content-wrapper">
+                <h2>Technical Skills</h2>
+                <div class="name-container">
+                    <div class="name-row">
+                        <div class="letter-box pending" data-tech="Azure">A</div>
+                        <div class="letter-box completed" data-tech="Natural Language Processing">N</div>
+                        <div class="letter-box completed" data-tech="JavaScript">J</div>
+                        <div class="letter-box completed" data-tech="APIs">A</div>
+                        <div class="letter-box pending" data-tech="Next.js">N</div>
+                        <div class="letter-box pending" data-tech="AWS">A</div>
+                    </div>
+                    <div class="name-row">
+                        <div class="letter-box pending" data-tech="Kubernetes">K</div>
+                        <div class="letter-box pending" data-tech="Angular">A</div>
+                        <div class="letter-box completed" data-tech="Version Control">V</div>
+                        <div class="letter-box completed" data-tech="IoT">I</div>
+                        <div class="letter-box pending" data-tech="Django">D</div>
+                        <div class="letter-box completed" data-tech="Unsupervised Learning">U</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="projects" class="fade-in-up">
+        <canvas id="networkCanvas"></canvas>
+        <div id="canvas-overlay"></div>
+        <div id="projectInfo" class="hidden">
+            <h2 id="projectTitle"></h2>
+            <p id="projectDescription"></p>
+            <div id="projectTechnologies"></div>
+        </div>
+        <section id="projects">
             <h2>Projects</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="frontend">Frontend</button>
-                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-            </div>
-            <div class="projects-grid">
-                <!-- Project items will be added dynamically with JavaScript -->
-            </div>
+            <ul>
+                <li data-id="1">AI-Powered Chatbot</li>
+                <li data-id="2">Blockchain Voting System</li>
+                <li data-id="3">AR Navigation App</li>
+                <li data-id="4">IoT Smart Home Hub</li>
+                <li data-id="5">Quantum Algorithm Simulator</li>
+            </ul>
         </section>
 
         <section id="contact" class="fade-in-up">
@@ -78,19 +125,28 @@
                 <button type="submit" class="btn primary">Send Message</button>
             </form>
             <div class="social-links">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/anjanakvd" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/anjana-kavidu" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/kaviduanjana" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Anjana Kavidu. All rights reserved.</p>
+        <p>&copy; 2024 Anjana Kavidu. All rights reserved.</p>
     </footer>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.1/svg.min.js" integrity="sha512-dkiAc2IylYJK/TDyXwgZyVYCoZaHWOJUz+JGJGpytWX0GEGj4HxgV4QL+w4DyJXP3xbxwHLVZPcN/1eMhY28w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
     <button class="scroll-to-top" aria-label="Scroll to top">↑</button>
+
 </body>
 </html>
 
